@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style/css/style.css">
+    <link rel="icon" href="assets/image/favicon.png">
+    <link rel="stylesheet" href="assets/style/font/css/font-awesome.min.css">
+
+    <title>Happy Birthday Vanni</title>
+
+    <style>
+        .clip-triangle {
+            clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <audio id="bgMusic">
+        <source src="assets/audio/Birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="onMusic"
+        class="bg-transparent border-2 border-red-500 mx-5 my-5 w-14 h-14 text-2xl rounded-[100px] cursor-pointer hover:bg-[#B11429A] block absolute z-20 text-white"
+        onclick="MusicPlay()">
+        <i class="fa fa-volume-down"></i>
+    </button>
+
+    <button id="offMusic"
+        class="bg-transparent border-2 border-red-500 mx-5 my-5 w-14 h-14 text-2xl rounded-[100px] cursor-pointer hover:bg-[#B11429A] hidden absolute z-20 text-white"
+        onclick="MusicStop()">
+        <i class="fa fa-volume-up"></i>
+    </button>
+
+
+    <!-- HOME DISPLAY -->
+    <div id="home" class="relative w-full h-screen bg-[#C7BBB2] block">
+        <!-- Segitiga merah -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[#b11422] clip-triangle z-0 drop-shadow-xl"></div>
+
+        <!-- Elemen yang ingin ditaruh di atas -->
+        <div class="absolute w-screen h-screen bg-transparent z-10 flex justify-center items-center">
+            <div
+                class="sm:bg-[url(/assets/image/HomeSm.png)] md:bg-[url(/assets/image/HomeMd.png)] lg:bg-[url(/assets/image/HomeLg.png)] xl:bg-[url(/assets/image/HomeXl.png)] 2xl:bg-[url(/assets/image/Home2Xl.png)] drop-shadow-2xl sm:w-[550px] sm:h-[400px] md:w-[700px] md:h-[450px] lg:w-[900px] lg:h-[550px] xl:w-[1000px] xl:h-[650px] 2xl:w-[1300px] 2xl:h-[800px] rounded-3xl">
+
+                <div class="flex justify-center sm:h-24 md:h-[6.5rem] lg:h-[8rem] xl:h-[9rem] 2xl:h-[11rem] items-end">
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 bg-red-500 text-white rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showHome()">Home</button>
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showUcapan()">Ucapan</button>
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showForm()">Form</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- UCAPAN DISPLAY -->
+    <div id="ucapan" class="relative w-full h-screen bg-[#C98C78] hidden">
+        <!-- Segitiga merah -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[#A44736] clip-triangle z-0"></div>
+
+        <!-- Elemen yang ingin ditaruh di atas -->
+        <div class="absolute w-screen h-screen bg-transparent z-10 flex justify-center items-center">
+            <div
+                class="sm:bg-[url(/assets/image/UcapanSm.png)] md:bg-[url(/assets/image/UcapanMd.png)] lg:bg-[url(/assets/image/UcapanLg.png)] xl:bg-[url(/assets/image/UcapanXl.png)] 2xl:bg-[url(/assets/image/Ucapan2Xl.png)] drop-shadow-2xl sm:w-[550px] sm:h-[400px] md:w-[700px] md:h-[450px] lg:w-[900px] lg:h-[550px] xl:w-[1000px] xl:h-[650px] 2xl:w-[1300px] 2xl:h-[800px] rounded-3xl">
+
+                <div class="flex sm:py-4 justify-center lg:py-5 xl:py-5 2xl:py-8">
+                    <button
+                        class="sm:text-sm md:text-md xl:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showHome()">Home</button>
+                    <button
+                        class="sm:text-sm md:text-md xl:text-lg px-3 bg-red-500 text-white rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showUcapan()">Ucapan</button>
+                    <button
+                        class="sm:text-sm md:text-md xl:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showForm()">Form</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FORM DISPLAY -->
+    <div id="form" class="relative w-full h-screen bg-[#D39087] hidden">
+        <!-- Segitiga merah -->
+        <div class="absolute top-0 left-0 w-full h-full bg-[#AC615B] clip-triangle z-0"></div>
+
+        <!-- Elemen yang ingin ditaruh di atas -->
+        <div class="absolute w-screen h-screen bg-transparent z-10 flex justify-center items-center">
+            <div
+                class="sm:bg-[url(/assets/image/FormSm.png)] md:bg-[url(/assets/image/FormMd.png)] lg:bg-[url(/assets/image/FormLg.png)] xl:bg-[url(/assets/image/FormXl.png)] 2xl:bg-[url(/assets/image/Form2Xl.png)] drop-shadow-2xl sm:w-[550px] sm:h-[400px] md:w-[700px] md:h-[450px] lg:w-[900px] lg:h-[550px] xl:w-[1000px] xl:h-[650px] 2xl:w-[1300px] 2xl:h-[800px] rounded-3xl">
+
+                <div class="flex sm:py-2 justify-center xl:py-5 2xl:py-8">
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showHome()">Home</button>
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showUcapan()">Ucapan</button>
+                    <button
+                        class="sm:text-sm md:text-md lg:text-lg px-3 bg-red-500 text-white rounded-xl mx-2 font-[500] border-none hover:bg-red-500 hover:text-white hover:cursor-pointer"
+                        onclick="showForm()">Form</button>
+                </div>
+
+                <div class="px-4">
+                    <p>
+                        Isi Form Ini Untuk Klaim Hadiah!
+                    </p>
+
+                    <form action="#" class="py-4">
+                        <div>
+                            <textarea name="text" id="text" placeholder="Isikan Kata-Kata Mutiara Yang Kamu Miliki..."
+                                class="sm:w-64 sm:h-32 md:w-80 md:h-44 lg:w-[27rem] lg:h-60 xl:w-[30rem] 2xl:w-[40rem] border-dashed border-black border-2 focus:outline-none py-2 px-2"></textarea>
+                        </div>
+                    </form>
+
+                    <button
+                        class="bg-red-500 rounded-lg hover:cursor-pointer hover:bg-red-600 text-white sm:px-4 sm:py-2"
+                        onclick="openModal()" id="kirim">
+                        <i class="fa fa-send"></i>
+                        Kirim
+                    </button>
+
+                    <h1 id="warning" class="font-bold py-3"></h1>
+                </div>
+
+            </div>
+
+            <!-- MODALS -->
+            <div id="modal" class="z-30 absolute hidden">
+                <div class="bg-white w-[30rem] h-[37rem] rounded-xl">
+                    <div class="h-[100%] flex justify-center items-center">
+                        <div>
+                            <h1 class="text-red-500 font-bold text-center py-5 text-3xl">WARNING!</h1>
+
+                            <p class="text-center px-3 text-xl">
+                                Kamu Akan Di Redirect Ke WhatsApp Chat Adrian Nova. Field Untuk Isi Chat Akan Otomatis
+                                Terisi Dengan Tulisan Yang Kamu Tulis Di Form.
+                            </p>
+
+                            <div class="flex justify-center py-10">
+                                <button
+                                    class="bg-blue-400 w-40 h-16 text-3xl text-white rounded-xl font-bold cursor-pointer"
+                                    onclick="sendMessage()">
+                                    OKE
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
